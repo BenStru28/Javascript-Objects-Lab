@@ -91,6 +91,14 @@ More Hints: The existing starter Pokemon will be *replaced* in your party with t
 
 Solve Exercise 7 here:
 */
+game.party.splice(0, 1, pokemon[1]);
+
+game.party.splice(1, 1, pokemon[4]);
+
+game.party.splice(2, 1, pokemon[7]);
+
+game.party.splice(3, 1, pokemon[25]);
+console.log(game.party);
 
 /*
 Exercise 8
@@ -99,7 +107,10 @@ Exercise 8
 
 Solve Exercise 8 here:
 */
+for (i in game.party){
+    console.log(game.party[i].name);
 
+}
 /*
 Exercise 9
 1. Can you print out all the starter Pokémon from the `pokemon` array?
@@ -108,7 +119,11 @@ Exercise 9
 
 Solve Exercise 9 here:
 */
-
+for (i in pokemon) {
+    if (pokemon[i].starter == true)[
+        console.log(pokemon[i].name)
+    ]
+}
 /*
 Exercise 10
 Create a method called `catchPokemon` and add it to the `game` object. You should not need to edit the original game object directly. This method should:
@@ -120,6 +135,13 @@ After writing this method, call it and pass in a Pokemon object of your choice f
 
 Solve Exercise 10 here:
 */
+game.catchPokemon = function (pokemonObj) {
+    game.party.push(pokemonObj);
+};
+game.catchPokemon(pokemon[9]);
+
+console.log(game.party);
+
 /*
 
 
@@ -135,7 +157,12 @@ Also, log the `game.items` array to confirm that the pokeball quantity is being 
 
 Solve Exercise 11 here:
 */
-
+game.catchPokemon = function (pokemonObj) {
+    game.party.push(pokemonObj);
+    game.items[1].quantity = game.items[1].quantity - 1;
+};
+game.catchPokemon(pokemon[14]);
+console.log(game.items);
 
 /*
 Exercise 12
@@ -144,6 +171,12 @@ Exercise 12
 
 Solve Exercise 12 here:
 */
+for (i in game.gyms) {
+    if (game.gyms[i].difficulty < 6) {
+        game.gyms[i].completed = true;
+    }
+}
+console.log(game.gyms);
 
 /*
 Exercise 13
@@ -167,8 +200,21 @@ For example, if five gym objects have a value of `true` on their `completed` pro
 
 Solve Exercise 13 here:
 */
-
-
+game.gymStatus = function () {
+const gymTally = {
+    completed: 0, 
+     incomplete: 0,
+};
+for (i in game.gyms) {
+    if (game.gyms[i].completed == true) {
+        gymTally.completed = gymTally.completed + 1;
+    } else {
+        gymTally.incomplete = gymTally.incomplete + 1;
+    }
+}
+console.log(gymTally);
+};
+game.gymStatus();
 /*
 Exercise 14
 1. Add a `partyCount` method to `game` that counts the number of Pokémon in your party.
@@ -180,6 +226,11 @@ This method should:
 
 Solve Exercise 14 here:
 */
+game.partyCount = function () {
+    return game.party.length;
+};
+console.log(game.partyCount());
+
 
 /*
 Exercise 15
@@ -188,8 +239,12 @@ Exercise 15
 
 Solve Exercise 15 here:
 */
-
-
+for (i in game.gyms) {
+    if (game.gyms[i].difficulty < 8) {
+        game.gyms[i].completed = true;
+    }
+}
+console.log(game.gyms);
 /*
 Exercise 16
 1. Log the entire `game` object to the console. Take a moment to review the changes you've made throughout the exercises.
@@ -197,5 +252,5 @@ Exercise 16
 
 Solve Exercise 16 here:
 */
-
+console.log(game);
 
