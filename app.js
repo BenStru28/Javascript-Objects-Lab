@@ -57,7 +57,10 @@ Exercise 5
 
 Solve Exercise 5 here:
 */
-
+game.party.push[pokemon[3]];
+game.party.push[pokemon[6]];
+game.party.push[pokemon[24]];
+console.log(game.party);
 /*
 Exercise 6
 1. Set the `completed` property to true for gyms with a difficulty below 3.
@@ -66,7 +69,12 @@ Exercise 6
 
 Solve Exercise 6 here:
 */
-
+for (i in game.gyms) {
+    if (game.gyms[i].difficulty < 3) {
+        game.gyms[i].completed = true;
+    }
+}
+console.log(game.gyms);
 /*
 Exercise 7
 1. Evolve the starter Pokémon you added to your party earlier. Each starter Pokémon evolves into a specific one.
