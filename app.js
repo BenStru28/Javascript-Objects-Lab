@@ -41,7 +41,14 @@ Exercise 4
 
 Solve Exercise 4 here:
 */
-for (i in)
+for (i in pokemon) {
+    console.log(pokemon[i]);
+    if (pokemon[i].starter == true) {
+        game.party.push(pokemon[i]);
+        break;
+    
+    }
+}
 /*
 Exercise 5
 1. Choose three more Pokémon from the `pokemon` array and add them to your party.
